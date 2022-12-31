@@ -1,0 +1,181 @@
+Write a “person” class to hold all the details.
+lass Person {
+    constructor(name, age, gender, city) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+      this.city = city;
+    }
+  
+    setName(name) {
+      this.name = name;
+    }
+  
+    getName() {
+      return this.name;
+    }
+  
+    setAge(age) {
+      this.age = age;
+    }
+  
+    getAge() {
+      return this.age;
+    }
+  
+    setGender(gender) {
+      this.gender = gender;
+    }
+  
+    getGender() {
+      return this.gender;
+    }
+  
+    setCity(city) {
+      this.city = city;
+    }
+  
+    getCity() {
+      return this.city;
+    }
+  
+  }
+  
+  const person1 = new Person('John', 25, 'male', 'New York');
+  
+  person1.setName('James');
+  person1.setAge(28);
+  person1.setGender('male');
+  person1.setCity('Chicago');
+  
+  console.log(person1.getName());
+  console.log(person1.getAge());
+  console.log(person1.getGender());
+  console.log(person1.getCity());
+
+
+out put
+james,
+28,
+male,
+chicago
+
+4 .write a class to calculate the uber price.
+
+class UberPriceCalculator {
+    constructor(baseFare, perKmRate, perMinRate) {
+      this.baseFare = baseFare;
+      this.perKmRate = perKmRate;
+      this.perMinRate = perMinRate;
+    }
+  
+    calculatePrice(distance, duration) {
+      const distanceFare = distance * this.perKmRate;
+      const durationFare = duration * this.perMinRate;
+      const totalFare = this.baseFare + distanceFare + durationFare;
+  
+      return totalFare;
+    }
+  }
+  
+  const uberPriceCalculator = new UberPriceCalculator(10, 2.5, 0.75);
+  const fare = uberPriceCalculator.calculatePrice(5, 10);
+  console.log(fare); 
+  
+  output 30
+
+2 .circle
+https://github.com/rvsp/typescript-oops/blob/master/Practice/class-circle.md
+
+
+var Circle = /** @class */ (function () {
+    function Circle(radius, color) {
+        this.radius = 1.0;
+        this.color = "Red";
+        if (typeof (radius) !== "undefined") {
+            this.radius = radius;
+        }
+        if (typeof (color) !== "undefined") {
+            this.color = color;
+        }
+    }
+    Circle.prototype.getRadius = function () {
+        return this.radius;
+    };
+    Circle.prototype.setRadius = function (radius) {
+        this.radius = radius;
+    };
+    Circle.prototype.getColor = function () {
+        return this.color;
+    };
+    Circle.prototype.setColor = function (color) {
+        this.color = color;
+    };
+    Circle.prototype.toString = function () {
+        return "Radius: " + this.radius + " Color: " + this.color;
+    };
+    Circle.prototype.getArea = function () {
+        return (2 * (Math.PI) * this.radius);
+    };
+    Circle.prototype.getCircumference = function () {
+        return (2 * this.radius);
+    };
+    return Circle;
+}());
+var c1 = new Circle();
+console.log("Constructor with no params: " + c1.toString());
+var c2 = new Circle(3.5);
+console.log("Constructor with one param: " + c2.toString());
+var c3 = new Circle(2.2, 'Yellow');
+console.log("getRadius: " + c3.getRadius());
+c3.setRadius(3.3);
+console.log("Radius value after setRadius: " + c3.getRadius());
+console.log("getColor: " + c3.getColor());
+c3.setColor("Blue");
+console.log("Color Value after setColor: " + c3.getColor());
+console.log(c3.toString());
+console.log("Area: " + c3.getArea());
+console.log("Circumference: " + c3.getCircumference());
+
+output 
+Constructor with no params: Radius: 1 Color: Red
+script.js:80 Constructor with one param: Radius: 3.5 Color: Red
+script.js:82 getRadius: 2.2
+script.js:84 Radius value after setRadius: 3.3
+script.js:85 getColor: Yellow
+script.js:87 Color Value after setColor: Blue
+
+script.js:88 Radius: 3.3 Color: Blue
+script.js:89 Area: 20.734511513692635
+script.js:90 Circumference: 6.6
+
+
+title, which is a String representing the title of the movie
+studio, which is a String representing the studio that made the movie
+rating, which is a String representing the rating of the movie (i.e. PG­13, R, etc)
+a) Write a constructor for the class Movie, which takes a String representing the title of the movie, a String representing the studio, and a String representing the rating as its arguments, and sets the respective class properties to these values.
+b) The constructor for the class Movie will set the class property rating to "PG" as default when no rating is provided.
+c) Write a method getPG, which takes an array of base type Movie as its argument, and returns a new array of only those movies in the input array with a rating of "PG". You may assume the input array is full of Movie instances. The returned array need not be full.
+d) Write a piece of code that creates an instance of the class Movie with the title “Casino Royale”, the studio “Eon Productions”, and the rating “PG­13”.
+
+// a)
+class Movie {
+    constructor(title, studio, rating = "PG") {
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
+    }
+    
+    // b) getrating() {
+    return "the rating is  " + this.rating;
+  }
+}
+    
+    // c)
+    getPG(movies) {
+        return movies.filter(movie => movie.rating === "PG");
+    }
+}
+
+// d)
+let casinoRoyale = new Movie("Casino Royale", "Eon Productions", "PG-13");
